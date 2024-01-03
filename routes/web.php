@@ -17,10 +17,30 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     // return view('welcome');
-    // fetch all users
-  $users = DB::select("select * from users");
-  dd($users);
+   // fetch all users
+    $users = DB::select("select * from users");
+    dd($users);
+//create new users
+// $user = DB::insert('insert into users(name,email,password) values(?,?,?)',[
+//     'Mariom',
+//     'mariom@gmail.com',
+//     12345678,
+// ]);
+// dd($user);
+//update users
+//$user = DB::update("update users set name='Maria' where id=1");
+//update user alternative way array binding
+// $user = DB::update("update users set email=? where id=?", [
+//     'maria@gmail.com',
+//     1,
+// ]);
+//  dd($user);
+//delete user
+$user = DB::delete("delete from users where id=1");
+dd($user);
 });
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
