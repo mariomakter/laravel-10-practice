@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -16,28 +17,24 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-   // fetch all users
-    $users = DB::select("select * from users");
+    //  return view('welcome');
+    // $users = User::all();
+    $users = User::get();
+    // $user = User::create([
+    //     'name' => 'Tania',
+    //     'email' => "sania@gmail.com",
+    //     'password' =>'12345678',
+    // ]);
+    // dd($user);
+    // $user = User::where('id', 3)->first();
+    // $user->update([
+    //     'name' => 'Sadia',
+    // ]);
+    // dd($user);
+    // $user = User::find(3);
+    // $user->delete();
+    // dd($user);
     dd($users);
-//create new users
-// $user = DB::insert('insert into users(name,email,password) values(?,?,?)',[
-//     'Mariom',
-//     'mariom@gmail.com',
-//     12345678,
-// ]);
-// dd($user);
-//update users
-//$user = DB::update("update users set name='Maria' where id=1");
-//update user alternative way array binding
-// $user = DB::update("update users set email=? where id=?", [
-//     'maria@gmail.com',
-//     1,
-// ]);
-//  dd($user);
-//delete user
-$user = DB::delete("delete from users where id=1");
-dd($user);
 });
 
 
