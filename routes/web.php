@@ -5,27 +5,17 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     //  return view('welcome');
     // $users = User::all();
-    $users = User::get();
+    $user = User::find(8);
     // $user = User::create([
     //     'name' => 'Tania',
-    //     'email' => "sania@gmail.com",
+    //     'email' => "sania261@gmail.com",
     //     'password' =>'12345678',
     // ]);
-    // dd($user);
+    dd($user->name);
     // $user = User::where('id', 3)->first();
     // $user->update([
     //     'name' => 'Sadia',
@@ -34,7 +24,8 @@ Route::get('/', function () {
     // $user = User::find(3);
     // $user->delete();
     // dd($user);
-    dd($users);
+    // $users= User::all();
+    // dd($users);
 });
 
 
